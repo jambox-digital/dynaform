@@ -1,29 +1,6 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
-import DatePicker from '../datePicker';
-import {
-    Checkbox,
-    Grid,
-    MenuItem,
-    FormControl,
-    FormControlLabel,
-    FormGroup,
-    FormLabel,
-} from '@material-ui/core';
-import Slider from '@material-ui/core/Slider';
-import Button from '../button';
-import InputLabel from '../inputLabel';
-import TextField from '../textField';
-import SelectField from '../selectField';
-import { MuiPickersUtilsProvider as DatePickerUtilsProvider } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-    IFormObject,
-    IInput,
-    ICheckbox
-} from '../../interfaces/forms';
 
-import styles from '../../styles'
 
 interface IFormProps {
     formObject: IFormObject,
@@ -31,7 +8,7 @@ interface IFormProps {
     onFormSubmit: (formData: {}) => void,
 }
 
-const Form: React.FunctionComponent<IFormProps> = ({ formObject, formValidation, onFormSubmit }) => {
+const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, formValidation, onFormSubmit }) => {
     const [formValues, setFormValues] = React.useState({});
 
     const { register, handleSubmit, errors, setValue } = useForm({ mode: 'onBlur', validationSchema: formValidation });
@@ -200,4 +177,4 @@ const Form: React.FunctionComponent<IFormProps> = ({ formObject, formValidation,
     );
 };
 
-export default Form;
+export default Dynaform;

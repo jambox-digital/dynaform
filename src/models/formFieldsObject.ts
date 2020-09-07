@@ -1,6 +1,9 @@
-inputs = [
+import AppConstants from '../utils/AppConstants'
+
+export const formFields = [
     {
-        type: Constants.,
+        type: AppConstants.inputType.TEXT,
+        defaultValue
 
     }
 ]
