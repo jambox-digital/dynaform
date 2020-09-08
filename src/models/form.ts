@@ -1,46 +1,3 @@
-
-export interface IButton {
-    type: 'button' | 'submit' | 'reset',
-    text: string,
-    onClick?: () => void,
-    color?: 'inherit' | 'default' | 'primary' | 'secondary' | undefined,
-    textColor?: string,
-    variant?: 'text' | 'outlined' | 'contained' | undefined,
-}
-
-export interface IButtons {
-    align?: 'flex-start' | 'flex-end' | 'center',
-    items: IButton[]
-}
-}
-export interface ICheckbox {
-    defaultChecked: boolean,
-    label?: string,
-    checked?: boolean,
-    disabled?: boolean,
-    color?: string,
-    id: string,
-    required?: boolean,
-    value?: string | number
-}
-
-export interface IRadio {
-    name: string,
-    value: string | number,
-    items: [
-        {
-            value: string | number,
-            disabled?: boolean,
-            label: string,
-        }
-    ]
-}
-
-export interface ISelectOption {
-    value: string | number ,
-    text: string
-}
-
 export interface IInput {
     type: string,
     onChange?: () => void,
@@ -50,7 +7,6 @@ export interface IInput {
     id: string,
     required?: boolean,
     iconComponent?: React.ElementType,
-    options?: ISelectOption[],
     format?: string,
     views?: string[],
     disablePast?: boolean,
@@ -60,15 +16,24 @@ export interface IInput {
     rowsMax?: number,
     placeholder?: string,
     width?: number,
-    checkboxGroup?: ICheckbox[],
-    radioGroup?: IRadio[],
     groupLabel?: string,
     step?: number, 
     min?: number,
     max?: number,
     measureSymbol?: string,
-    color?: string | 'primary' | 'secondary',
+    color?: string,
     onBlur?: (event: Event, data: any) => void;
+
+    // from w3c schools
+    accept: string, // type=file
+    alt: string, // type=text
+    autocomplete: string, // on (default) | off - could be boolean types: text search, url, tel, email, password, datepickers, range, color
+    autofocus: boolean, //no value, so boolean, 
+    checked: boolean, // no value, types radio and checkbox
+    dirname: string, // submits the direction of text
+    disabled: boolean, // all types
+    form: string, // form id for elements outside the form, but part of the form
+    
 }
 
 export interface IFormObject {
