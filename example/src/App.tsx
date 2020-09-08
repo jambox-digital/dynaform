@@ -1,10 +1,13 @@
 import React from 'react'
 
-import { ExampleComponent } from 'dynaforms'
-import 'dynaforms/dist/index.css'
+import Dynaform from 'dynaforms';
+import 'dynaforms/dist/index.css';
+import {testForm} from './testForm';
+
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  const submit = (data: {}) => {console.log(data)}
+  return <Dynaform formObject={testForm} onFormSubmit={submit}/>
 }
 
 export default App
