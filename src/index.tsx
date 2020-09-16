@@ -2,11 +2,11 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 // import AppConstants from './utils/AppConstants';
 import InputText from './components/InputText/';
-import {IFormObject, IInput} from './models/form';
+import {IDynaForm, IDynaInput} from './models/form';
 
 
 interface IFormProps {
-    formObject: IFormObject,
+    formObject: IDynaForm,
     onFormSubmit: (formData: {}) => void,
 }
 
@@ -39,7 +39,7 @@ const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, onFormSubmi
         <form onSubmit={handleSubmit(onFormSubmit)}>
            
                 {
-                    formObject.inputs.map((input: IInput, index: number) =>
+                    formObject.inputs.map((input: IDynaInput, index: number) => {
                       //switch(input.type) {
                         // case AppConstants.inputType.CHECKBOX:
                         //   return <InputCheckbox inputObject={input} />
@@ -70,7 +70,7 @@ const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, onFormSubmi
                         
                         //case AppConstants.inputType.TEXT:
                           //return 
-                          <InputText key={index} inputObject={input} />
+                          return <InputText key={index} inputObject={input} />
                         
                         // case AppConstants.inputType.TIME:
                         //   return <InputTime inputObject={input} />
@@ -78,7 +78,7 @@ const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, onFormSubmi
                         // case AppConstants.inputType.URL:
                         //   return <InputUrl inputObject={input} />
 
-                    )
+                    })
                 }                    
                 
         </form >

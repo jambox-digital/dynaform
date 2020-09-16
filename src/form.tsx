@@ -1,10 +1,10 @@
 // import * as React from 'react';
 // import { useForm } from 'react-hook-form';
-
+// import { IFormObject, IInputTextPrototype } from './models/form'
 
 // interface IFormProps {
 //     formObject: IFormObject,
-//     formValidation: {},
+//     formValidation?: {},
 //     onFormSubmit: (formData: {}) => void,
 // }
 
@@ -12,7 +12,7 @@
 //     const [formValues, setFormValues] = React.useState({});
 
 //     const { register, handleSubmit, errors, setValue } = useForm({ mode: 'onBlur', validationSchema: formValidation });
-//     const customRegisterFields = formObject.inputs.filter((input: IInput) => input.type === 'select' || input.type === 'datePicker' || input.type === 'slider');
+//     const customRegisterFields = formObject.inputs.filter((input: IInputTextPrototype) => input.type === 'select' || input.type === 'datePicker' || input.type === 'slider');
 
 //     const handleDatePickerChange = (date: string | undefined, id: string) => {
 //         setValue(id, date);

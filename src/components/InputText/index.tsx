@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { IInput } from '../../models/form'
+import { IDynaInput } from '../../models/form'
 
 interface IProps {
-    inputObject: IInput
+    inputObject: IDynaInput
 }
 
 const InputText: React.FC<IProps> = ({inputObject}) => {

@@ -8,14 +8,14 @@ export const testForm = {
       required: true,
       width: 6,
     },
-    // {
-    //   type: 'number',
-    //   defaultValue: '',
-    //   label: 'CreditLimit',
-    //   id: 'creditLimit',
-    //   required: true,
-    //   width: 6
-    // },
+    {
+      type: 'number',
+      defaultValue: '',
+      label: 'CreditLimit',
+      id: 'creditLimit',
+      required: true,
+      width: 6
+    },
     // {
     //   type: 'checkbox',
     //   defaultValue: 'no',
@@ -47,7 +47,7 @@ export const testForm = {
     //   id: 'currency',
     //   required: true,
     //   width: 6,
-    //   iconComponent: ExpandMoreIcon,
+    //   //iconComponent: ExpandMoreIcon,
     //   options: [
     //     {
     //       value: 'EUR',
@@ -66,20 +66,20 @@ export const testForm = {
     //   id: 'GDPRAgreementEndDate',
     //   required: true,
     //   width: 6,
-    //   iconComponent: ExpandMoreIcon,
+    //   //iconComponent: ExpandMoreIcon,
     //   disablePast: true,
     // },
-    // {
-    //     type: 'slider',
-    //     label: 'Probability',
-    //     id: 'probabilityScale',
-    //     defaultNumericValue: 20,
-    //     step: 20,
-    //     min: 0,
-    //     max: 100,
-    //     measureSymbol: '%',
-    //     width: 6
-    // },
+    {
+        type: 'slider',
+        label: 'Probability',
+        id: 'probabilityScale',
+        defaultNumericValue: 20,
+        step: 20,
+        min: 0,
+        max: 100,
+        measureSymbol: '%',
+        width: 6
+    },
     {
       type: 'text',
       defaultValue: '',
