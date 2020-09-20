@@ -1,38 +1,65 @@
 export interface IDynaInput {
     //all input attributes for all types from w3c schools
-    accept: string, // type=file
-    alt: string, // type=text
+    
+    //the ones that are used by all types
     autocomplete: string, // on (default) | off - could be boolean types: text search, url, tel, email, password, datepickers, range, color
     autofocus: boolean, //no value, so boolean, 
-    checked: boolean, // no value, types radio and checkbox
-    dirname: string, // submits the direction of text
     disabled: boolean, // all types
     form: string, // form id for elements outside the form, but part of the form
+    id: string, //required
+    name: string, //for text
+    type: string, //all supported types
+    value: string, // for text input
+    
+    
+    //almost all
+    list: string, //datalist_id
+    readonly: boolean,
+    required: boolean,
+    
+    //password, search, tel, text, url
+    maxlength: number, //number
+    minlength: number,
+    placeholder: string,
+    
+    //numeric types
+    max: number, //number | date
+    min: number, // number
+    step: number, //interval between 2 steps
+    
+    //text,search
+    dirname: string, // submits the direction of text
+    
+    //image
+    alt: string, // type=text
+    height: number, //pixels
+    src: string, //URL of the image for submit button
+    width: number //in pixels
+    
+    //file
+    accept: string, // type=file
+    
+    //email, file
+    multiple: boolean, //multiple value for input element
+    
+    //submit
+    
+    //image, submit
     formaction: string, //URL for submit | image
     formenctype: string, //text/plain, multipart/form-data
     formmethod: string, // get | post
     formnovalidate: boolean, // no validation on submit
     formtarget: string, // _blank ... 
-    height: number, //pixels
-    id: string, //required
-    list: string, //datalist_id
-    max: number, //number | date
-    maxlength: number, //number
-    min: number, // number
-    minlength: number,
-    multiple: boolean, //multiple value for input element
-    name: string, //for text
+    
+    //radio, checkbox
+    checked: boolean, // no value, types radio and checkbox
+    
+    //password, text, tel
     pattern: string, //regExp
-    placeholder: string,
-    readonly: boolean,
-    required: boolean,
-    size: number, //number of charachters in input
-    src: string, //URL of the image for submit button
-    step: number, //interval between 2 steps
-    type: string, //all supported types
-    value: string, // for text input
-    width: number //in pixels
 
+    //email, password, tel, text
+    size: number, //number of charachters in input
+    
     //textarea attributes
     multiline?: boolean,
     rows?: number,

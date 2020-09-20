@@ -6,7 +6,6 @@ interface IProps {
 }
 
 const InputText: React.FC<IProps> = ({inputObject}) => {
-    console.log(inputObject);
     return <input type={inputObject.type} />
 }
 
