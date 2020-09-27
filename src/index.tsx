@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
-// import AppConstants from './utils/AppConstants';
+import AppConstants from './utils/AppConstants';
 import InputText from './components/InputText/';
-import {IDynaForm, IDynaInput} from './models/form';
+import InputSelect from './components/InputSelect/';
+//import {IDynaForm} from './models/form';
 
 
 interface IFormProps {
-    formObject: IDynaForm,
+    formObject: any,
     onFormSubmit: (formData: {}) => void,
 }
 
@@ -35,12 +36,13 @@ const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, onFormSubmi
     //     });
     // }, [register]);
 
+    console.log(formObject);
     return (
         <form onSubmit={handleSubmit(onFormSubmit)}>
            
                 {
-                    formObject.inputs.map((input: IDynaInput, index: number) => {
-                      //switch(input.type) {
+                    formObject.inputs.map((input: any, index: number) => {
+                        switch(input.type) {
                         // case AppConstants.inputType.CHECKBOX:
                         //   return <InputCheckbox inputObject={input} />
 
@@ -65,11 +67,13 @@ const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, onFormSubmi
                         // case AppConstants.inputType.RANGE:
                         //   return <InputRange inputObject={input} />
 
+                        case AppConstants.inputType.SELECT: 
+                          return <InputSelect key={index} inputObject={input} />
+
                         // case AppConstants.inputType.TEL:
                         //   return <InputTel inputObject={input} />
                         
-                        //case AppConstants.inputType.TEXT:
-                          //return 
+                        case AppConstants.inputType.TEXT: 
                           return <InputText key={index} inputObject={input} />
                         
                         // case AppConstants.inputType.TIME:
@@ -77,6 +81,11 @@ const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, onFormSubmi
 
                         // case AppConstants.inputType.URL:
                         //   return <InputUrl inputObject={input} />
+
+                        default:
+                            return <div>NITA</div>
+
+                        }
 
                     })
                 }                    

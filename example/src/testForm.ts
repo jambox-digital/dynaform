@@ -40,25 +40,25 @@ export const testForm = {
     //   }
     // ]
     // },
-    // {
-    //   type: 'select',
-    //   defaultValue: 'EUR',
-    //   label: 'Currency',
-    //   id: 'currency',
-    //   required: true,
-    //   width: 6,
-    //   //iconComponent: ExpandMoreIcon,
-    //   options: [
-    //     {
-    //       value: 'EUR',
-    //       text: 'EUR'
-    //     },
-    //     {
-    //       value: 'GBP',
-    //       text: 'GBP'
-    //     }
-    //   ],
-    // },
+    {
+      type: 'select',
+      defaultValue: 'EUR',
+      label: 'Currency',
+      id: 'currency',
+      required: true,
+      width: 6,
+      //iconComponent: ExpandMoreIcon,
+      options: [
+        {
+          value: 'EUR',
+          text: 'EUR'
+        },
+        {
+          value: 'GBP',
+          text: 'GBP'
+        }
+      ],
+    },
     // {
     //   type: 'datePicker',
     //   defaultValue: Date().toString(),

@@ -9,6 +9,7 @@ export default {
         PASSWORD: 'password',
         RADIO: 'radio',
         RANGE: 'range',
+        SELECT: 'select',
         TEL: 'tel',
         TEXT: 'text',
         TIME: 'time',
