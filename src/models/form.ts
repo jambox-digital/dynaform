@@ -1,4 +1,4 @@
-export interface IDynaInputOld {
+export type IDynaInputOld = {
     //global attributes from w3c shools
     accesskey?: string, //key to focus onto the element
     class?: string, //css classes
@@ -107,7 +107,7 @@ export interface IDynaInputOld {
     color?: string,
 }
 
-export interface IDynaInputText {
+export type IDynaInputText = {
     autocomplete?: string, // on (default) | off - could be boolean types: text search, url, tel, email, password, datepickers, range, color
     autofocus?: boolean, //no value, so boolean, 
     dirname?: string, // submits the direction of text
@@ -143,7 +143,7 @@ export interface IDynaInputText {
     color?: string,
 }
 
-export interface IDynaInputSelect {
+export type IDynaInputSelect = {
     autofocus?: boolean, 
     disabled?: boolean,
     form?: string, //form id
@@ -180,6 +180,7 @@ export interface IDynaInputSelect {
     iconComponentLeft?: React.ElementType,
     iconComponentRight?: React.ElementType,
     measureSymbol?: string,
+    ref: any,
 
     type: 'select',
      
@@ -195,7 +196,7 @@ export type IDynaInput =
     | IDynaInputText
     | IDynaInputSelect
 
-export interface IDynaForm {
+export type IDynaForm = {
     inputs: IDynaInput[],
     //buttons: IDynaButtons,
     //validation: IDynaValidation,

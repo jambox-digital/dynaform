@@ -3,45 +3,30 @@ import { useForm } from 'react-hook-form';
 import AppConstants from './utils/AppConstants';
 import InputText from './components/InputText/';
 import InputSelect from './components/InputSelect/';
+import { IDynaInput, IDynaInputSelect, IDynaInputText } from './models/form';
 //import {IDynaForm} from './models/form';
 
 
 interface IFormProps {
     formObject: any,
+    formValidation?: any,
     onFormSubmit: (formData: {}) => void,
 }
 
 const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, onFormSubmit }) => {
-    //const [formValues, setFormValues] = React.useState({});
-    const { handleSubmit } = useForm({ mode: 'onBlur' });
-    // const customRegisterFields = formObject.inputs.filter((input: IInput) => input.type === 'select' || input.type === 'datePicker' || input.type === 'slider');
+    const { register, handleSubmit } = useForm({ mode: 'onBlur' });
+    const customRegisterFields = formObject.inputs.filter((input: any) => input.type === 'select' || input.type === 'datePicker' || input.type === 'slider');
 
-    // const handleDatePickerChange = (date: string | undefined, id: string) => {
-    //     setValue(id, date);
-    //     setFormValues({ ...formValues, [id]: `${date?.toString()}` });
-    // };
+    React.useEffect(() => {
+        customRegisterFields.forEach((field: IDynaInput) => {
+            register({ name: field.id, value: field.defaultValue === undefined ? field.defaultNumericValue : field.defaultValue, type: 'custom' });
+        });
+    }, [register]);
 
-    // const handleSliderChange = (value: number | boolean, event: React.ChangeEvent<{}>, id: string) => {
-    //     if (!!event) {
-    //         setValue(id, value);
-    //         setFormValues({ ...formValues, [id]: value });
-    //     }
-    // };
-
-    //const handleCheckboxChange = (value: boolean, event: React.ChangeEvent, id: string) => 
-
-    // React.useEffect(() => {
-    //     customRegisterFields.forEach((field: IInput) => {
-    //         register({ name: field.id, value: field.defaultValue === undefined ? field.defaultNumericValue : field.defaultValue, type: 'custom' });
-    //     });
-    // }, [register]);
-
-    console.log(formObject);
     return (
         <form onSubmit={handleSubmit(onFormSubmit)}>
-           
                 {
-                    formObject.inputs.map((input: any, index: number) => {
+                    formObject.inputs.map((input: IDynaInput, index: number) => {
                         switch(input.type) {
                         // case AppConstants.inputType.CHECKBOX:
                         //   return <InputCheckbox inputObject={input} />
@@ -68,13 +53,13 @@ const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, onFormSubmi
                         //   return <InputRange inputObject={input} />
 
                         case AppConstants.inputType.SELECT: 
-                          return <InputSelect key={index} inputObject={input} />
+                          return <InputSelect key={input.id} register={register} inputObject={input as IDynaInputSelect} />
 
                         // case AppConstants.inputType.TEL:
                         //   return <InputTel inputObject={input} />
                         
                         case AppConstants.inputType.TEXT: 
-                          return <InputText key={index} inputObject={input} />
+                          return <InputText key={input.id} register={register} inputObject={input as IDynaInputText} />
                         
                         // case AppConstants.inputType.TIME:
                         //   return <InputTime inputObject={input} />
@@ -83,12 +68,13 @@ const Dynaform: React.FunctionComponent<IFormProps> = ({ formObject, onFormSubmi
                         //   return <InputUrl inputObject={input} />
 
                         default:
-                            return <div>NITA</div>
+                            return <div key={`nita${index}`}>NITA</div>
 
                         }
 
                     })
-                }                    
+                }           
+                <button type={'submit'}>SUB</button>         
                 
         </form >
     );
