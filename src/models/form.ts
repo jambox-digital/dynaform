@@ -1,7 +1,7 @@
-export type IDynaInputOld = {
+export type IDynaGlobalAttributes = {
     //global attributes from w3c shools
     accesskey?: string, //key to focus onto the element
-    class?: string, //css classes
+    //class?: string, //css classes
     contenteditable?: boolean, //self-explanatory
     dir?: 'ltr' | 'rtl' | 'auto',
     draggable?: boolean,
@@ -9,23 +9,25 @@ export type IDynaInputOld = {
     //id: string,
     lang?: string, //en, fr etc.
     spellcheck?: boolean,
-    style?: string, //styling
+    //style?: string, //styling
     tabindex?: number,// tabbing order of an element
     title?: string,
     translate?: 'yes' | 'no', //indicates should something be translated or not
 
-    //all input attributes for all types from w3c schools
-    
-    //the ones that are used by all types
+    //the ones that are used by all input types
     autocomplete?: string, // on (default) | off - could be boolean types: text search, url, tel, email, password, datepickers, range, color
     autofocus?: boolean, //no value, so boolean, 
     disabled?: boolean, // all types
     form?: string, // form id for elements outside the form, but part of the form
-    id: string, //required
+    //id: string, //required
     name?: string, //for text
-    type: string, //all supported types
+    //type: string, //all supported types
     value?: string, // for text input
-    
+}
+
+export type IDynaInputOld = {
+    //used by input types:
+
     //almost all
     list?: string, //datalist_id
     readonly?: boolean,
@@ -107,25 +109,19 @@ export type IDynaInputOld = {
     color?: string,
 }
 
-export type IDynaInputText = {
-    autocomplete?: string, // on (default) | off - could be boolean types: text search, url, tel, email, password, datepickers, range, color
-    autofocus?: boolean, //no value, so boolean, 
+export type IDynaInputText = IDynaGlobalAttributes & {
     dirname?: string, // submits the direction of text
-    disabled?: boolean, // all types
-    form?: string, // form id for elements outside the form, but part of the form
     id: string, //required
     list?: string, //datalist_id
     maxlength?: number, //number
     minlength?: number,
-    name?: string, //for text
     pattern?: string, //regExp
     placeholder?: string,
     readonly?: boolean,
     required?: boolean,
     size?: number, //number of charachters in input
     type: 'text', //all supported types
-    value?: string, // for text input
-
+ 
     //methods
     onBlur?: (event: Event, data: any) => void,
     onChange?: () => void,
@@ -143,29 +139,12 @@ export type IDynaInputText = {
     color?: string,
 }
 
-export type IDynaInputSelect = {
-    autofocus?: boolean, 
+export type IDynaInputSelect = IDynaGlobalAttributes & {
     disabled?: boolean,
-    form?: string, //form id
     multiple?: boolean, //for multiple options
-    name?: string, 
     required?: boolean,
     size?: number, //number of visible items in drop-down
-
-    accesskey?: string, //key to focus onto the element
-    class?: string, //css classes
-    contenteditable?: boolean, //self-explanatory
-    dir?: 'ltr' | 'rtl' | 'auto',
-    draggable?: boolean,
-    hidden?: boolean,
     id: string,
-    lang?: string, //en, fr etc.
-    spellcheck?: boolean,
-    style?: string, //styling
-    tabindex?: number,// tabbing order of an element
-    title?: string,
-    translate?: 'yes' | 'no', //indicates should something be translated or not
-
 
     //react-related
     //methods
@@ -174,14 +153,11 @@ export type IDynaInputSelect = {
      
     // optional attributes for react
     label?: string,
-    value: string,
     defaultValue?: string | number,
     defaultNumericValue?: number 
     iconComponentLeft?: React.ElementType,
     iconComponentRight?: React.ElementType,
     measureSymbol?: string,
-    ref: any,
-
     type: 'select',
      
     optGroup?: any,
