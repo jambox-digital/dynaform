@@ -1,16 +1,23 @@
+import './index.css'
+
 export const testForm = {
   inputs: [
     {
       type: 'text',
       defaultValue: '',
+      placeholder: 'enter the dragon!!!',
       label: 'Customer Code',
       id: 'code',
       required: true,
-      width: 6,
+      style: {
+        input: 'input-text',
+        wrapper: 'input-text__wrapper',
+        label: 'input-text__label'
+      }
     },
     {
       type: 'number',
-      defaultValue: '',
+      defaultValue: 67,
       label: 'CreditLimit',
       id: 'creditLimit',
       required: true,
