@@ -1,29 +1,56 @@
+export type IDynaInputStyle = {
+    input?: string,
+    label?: string,
+    wrapper?: string
+}
+
 export type IDynaGlobalAttributes = {
     //global attributes from w3c shools
     accesskey?: string, //key to focus onto the element
-    //class?: string, //css classes
     contenteditable?: boolean, //self-explanatory
     dir?: 'ltr' | 'rtl' | 'auto',
     draggable?: boolean,
     hidden?: boolean,
-    //id: string,
     lang?: string, //en, fr etc.
     spellcheck?: boolean,
-    //style?: string, //styling
     tabindex?: number,// tabbing order of an element
     title?: string,
     translate?: 'yes' | 'no', //indicates should something be translated or not
+    //class?: string, //css classes
+    //id: string,
+    //style?: string, //styling
 
     //the ones that are used by all input types
     autocomplete?: string, // on (default) | off - could be boolean types: text search, url, tel, email, password, datepickers, range, color
     autofocus?: boolean, //no value, so boolean, 
     disabled?: boolean, // all types
     form?: string, // form id for elements outside the form, but part of the form
-    //id: string, //required
     name?: string, //for text
-    //type: string, //all supported types
     value?: string, // for text input
+
+    required?:boolean,
+
+    id: string, //required
+    type: string, //all supported types
+
+    //react-related
+    //methods
+    onBlur?: (event: Event, data: any) => void,
+    onChange?: () => void,
+     
+    // optional attributes for react
+    label?: string,
+    defaultValue?: string | number,
+    defaultNumericValue?: number 
+    iconComponentLeft?: React.ElementType,
+    iconComponentRight?: React.ElementType,
+    measureSymbol?: string,
+ 
+    //complete input style
+    style?: IDynaInputStyle
 }
+
+
 
 export type IDynaInputOld = {
     //used by input types:
@@ -109,68 +136,93 @@ export type IDynaInputOld = {
     color?: string,
 }
 
+
+//not yet defined
+export type IDynaInputCheckbox = IDynaGlobalAttributes & {}
+export type IDynaInputDate = IDynaGlobalAttributes & {}
+export type IDynaInputFile = IDynaGlobalAttributes & {}
+export type IDynaInputRadio = IDynaGlobalAttributes & {}
+export type IDynaInputRange = IDynaGlobalAttributes & {}
+export type IDynaInputTime = IDynaGlobalAttributes & {}
+
+//defined
+export type IDynaInputEmail = IDynaGlobalAttributes & {
+    list?: string,
+    maxlength?: number,
+    minlength?: number,
+    multiple?: boolean,
+    pattern?: string,
+    placeholder?: string,
+    readonly?: boolean,
+    size?: number
+}
+
+export type IDynaInputNumber = IDynaGlobalAttributes & {
+    list?: string,
+    max?: number,
+    min?: number,
+    placeholder?: string,
+    readonly?: boolean,
+    step?: number
+}
+
+export type IDynaInputPassword = IDynaGlobalAttributes & {
+    maxlength?: number,
+    minlength?: number,
+    pattern?: string,
+    placeholder?: string,
+    readonly?: boolean,
+    size?: number
+}
+
+export type IDynaInputSelect = IDynaGlobalAttributes & {
+    multiple?: boolean, //for multiple options
+    size?: number, //number of visible items in drop-down
+    //just for select for now
+    optGroup?: any,
+    options?: any[],
+}
+
+export type IDynaInputTel = IDynaGlobalAttributes & {
+    list?: string,
+    maxlength?: number,
+    minlength?: number,
+    pattern?: string,
+    placeholder?: string,
+    readonly?: boolean,
+    size?: number
+}
+
 export type IDynaInputText = IDynaGlobalAttributes & {
     dirname?: string, // submits the direction of text
-    id: string, //required
     list?: string, //datalist_id
     maxlength?: number, //number
     minlength?: number,
     pattern?: string, //regExp
     placeholder?: string,
     readonly?: boolean,
-    required?: boolean,
     size?: number, //number of charachters in input
-    type: 'text', //all supported types
- 
-    //methods
-    onBlur?: (event: Event, data: any) => void,
-    onChange?: () => void,
-    
-    // optional attributes for react
-    label?: string,
-    defaultValue?: string | number,
-    defaultNumericValue?: number 
-    iconComponentLeft?: React.ElementType,
-    iconComponentRight?: React.ElementType,
-    measureSymbol?: string,
-
-    //individual input style
-    className?: string, 
-    color?: string,
 }
 
-export type IDynaInputSelect = IDynaGlobalAttributes & {
-    disabled?: boolean,
-    multiple?: boolean, //for multiple options
-    required?: boolean,
-    size?: number, //number of visible items in drop-down
-    id: string,
-
-    //react-related
-    //methods
-    onBlur?: (event: Event, data: any) => void,
-    onChange?: () => void,
-     
-    // optional attributes for react
-    label?: string,
-    defaultValue?: string | number,
-    defaultNumericValue?: number 
-    iconComponentLeft?: React.ElementType,
-    iconComponentRight?: React.ElementType,
-    measureSymbol?: string,
-    type: 'select',
-     
-    optGroup?: any,
-    options?: any[],
- 
-    //individual input style
-    className?: string, 
-    color?: string,
+export type IDynaInputURL = IDynaGlobalAttributes & {
+    list?: string,
+    maxlength?: number,
+    minlength?: number,
+    pattern?: string,
+    placeholder?: string,
+    readonly?: boolean,
+    size?: number,
+    spellcheck?: boolean
 }
 
 export type IDynaInput = 
-    | IDynaInputText
+    | IDynaInputEmail
+    | IDynaInputNumber
+    | IDynaInputPassword
     | IDynaInputSelect
+    | IDynaInputTel
+    | IDynaInputText
+    | IDynaInputURL
 
 export type IDynaForm = {
     inputs: IDynaInput[],
