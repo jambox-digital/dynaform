@@ -4,11 +4,11 @@ export const testForm = {
   inputs: [
     {
       type: 'text',
-      defaultValue: '',
       placeholder: 'enter the dragon!!!',
       label: 'Customer Code',
       id: 'code',
-      required: true,
+      name: 'code',
+      required: false,
       style: {
         input: 'input-text',
         wrapper: 'input-text__wrapper',
@@ -17,11 +17,10 @@ export const testForm = {
     },
     {
       type: 'number',
-      defaultValue: 67,
+      defaultValue: 78  ,
       label: 'CreditLimit',
       id: 'creditLimit',
       required: true,
-      width: 6
     },
     // {
     //   type: 'checkbox',
@@ -88,16 +87,14 @@ export const testForm = {
         width: 6
     },
     {
-      type: 'text',
+      accesskey: 'e',
+      
+      type: 'password',
       defaultValue: '',
-      label: 'Notes',
-      id: 'notes',
-      required: false,
-      width: 12,
-      multiline: true,
-      rows: 4,
-      rowsMax: 6,
-      placeholder: 'Notes'
+      label: 'password',
+      id: 'password',
+      required: true,
+      placeholder: 'Pass'
     }
   ],
 //   buttons: {

@@ -6,14 +6,14 @@ export type IDynaInputStyle = {
 
 export type IDynaGlobalAttributes = {
     //global attributes from w3c shools
-    accesskey?: string, //key to focus onto the element
-    contenteditable?: boolean, //self-explanatory
+    accessKey?: string, //key to focus onto the element
+    contentEditable?: boolean, //self-explanatory
     dir?: 'ltr' | 'rtl' | 'auto',
     draggable?: boolean,
     hidden?: boolean,
     lang?: string, //en, fr etc.
-    spellcheck?: boolean,
-    tabindex?: number,// tabbing order of an element
+    spellCheck?: boolean,
+    tabIndex?: number,// tabbing order of an element
     title?: string,
     translate?: 'yes' | 'no', //indicates should something be translated or not
     //class?: string, //css classes
@@ -21,8 +21,8 @@ export type IDynaGlobalAttributes = {
     //style?: string, //styling
 
     //the ones that are used by all input types
-    autocomplete?: string, // on (default) | off - could be boolean types: text search, url, tel, email, password, datepickers, range, color
-    autofocus?: boolean, //no value, so boolean, 
+    autoComplete?: string, // on (default) | off - could be boolean types: text search, url, tel, email, password, datepickers, range, color
+    autoFocus?: boolean, //no value, so boolean, 
     disabled?: boolean, // all types
     form?: string, // form id for elements outside the form, but part of the form
     name?: string, //for text
@@ -57,12 +57,12 @@ export type IDynaInputOld = {
 
     //almost all
     list?: string, //datalist_id
-    readonly?: boolean,
+    readOnly?: boolean,
     required?: boolean,
     
     //password, search, tel, text, url
-    maxlength?: number, //number
-    minlength?: number,
+    maxLength?: number, //number
+    minLength?: number,
     placeholder?: string,
     
     //numeric types
@@ -148,30 +148,30 @@ export type IDynaInputTime = IDynaGlobalAttributes & {}
 //defined
 export type IDynaInputEmail = IDynaGlobalAttributes & {
     list?: string,
-    maxlength?: number,
-    minlength?: number,
+    maxLength?: number,
+    minLength?: number,
     multiple?: boolean,
     pattern?: string,
     placeholder?: string,
-    readonly?: boolean,
+    readOnly?: boolean,
     size?: number
 }
 
 export type IDynaInputNumber = IDynaGlobalAttributes & {
     list?: string,
-    max?: number,
-    min?: number,
+    max?: number | Date,
+    min?: number | Date,
     placeholder?: string,
-    readonly?: boolean,
+    readOnly?: boolean,
     step?: number
 }
 
 export type IDynaInputPassword = IDynaGlobalAttributes & {
-    maxlength?: number,
-    minlength?: number,
+    maxLength?: number,
+    minLength?: number,
     pattern?: string,
     placeholder?: string,
-    readonly?: boolean,
+    readOnly?: boolean,
     size?: number
 }
 
@@ -185,34 +185,35 @@ export type IDynaInputSelect = IDynaGlobalAttributes & {
 
 export type IDynaInputTel = IDynaGlobalAttributes & {
     list?: string,
-    maxlength?: number,
-    minlength?: number,
+    maxLength?: number,
+    minLength?: number,
     pattern?: string,
     placeholder?: string,
-    readonly?: boolean,
+    readOnly?: boolean,
     size?: number
 }
 
 export type IDynaInputText = IDynaGlobalAttributes & {
     dirname?: string, // submits the direction of text
     list?: string, //datalist_id
-    maxlength?: number, //number
-    minlength?: number,
+    maxLength?: number, //number
+    minLength?: number,
     pattern?: string, //regExp
     placeholder?: string,
-    readonly?: boolean,
-    size?: number, //number of charachters in input
+    readOnly?: boolean,
+    size?: number, //number of characters in input
+    multiple?: boolean // just for email type
 }
 
 export type IDynaInputURL = IDynaGlobalAttributes & {
     list?: string,
-    maxlength?: number,
-    minlength?: number,
+    maxLength?: number,
+    minLength?: number,
     pattern?: string,
     placeholder?: string,
-    readonly?: boolean,
+    readOnly?: boolean,
     size?: number,
-    spellcheck?: boolean
+    spellCheck?: boolean
 }
 
 export type IDynaInput = 
