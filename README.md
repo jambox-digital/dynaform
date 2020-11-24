@@ -4,6 +4,9 @@
 
 [![NPM](https://img.shields.io/npm/v/dynaforms.svg)](https://www.npmjs.com/package/dynaforms) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## NOTE
+This software is still in its infant phase and it is not yet ready for usage, so it is not yet released
+
 ### Developers' note
 There are different inputs but sometimes they use completely the same set of attributes. To leave the code lean, I used one component for several input types (those who have similar attributes) 
 
@@ -19,8 +22,6 @@ used for types:
 userd for types:
 - number
 
-## NOTE
-This software is still in its infant phase and it is not yet ready for usage, so it is not yet released
 
 ## Install (not available yet)
 
